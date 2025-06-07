@@ -29,12 +29,7 @@ var rootCmd = &cobra.Command{
 			return err
 		}
 		filtered := filter.Filter(resources, action, target)
-		selection, err := presentation.SelectResource(filtered)
-		if err != nil {
-			return err
-		}
-		presentation.ShowDiff(selection)
-		return nil
+		return presentation.RunInteractiveMode(filtered)
 	},
 }
 

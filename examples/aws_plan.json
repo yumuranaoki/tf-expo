@@ -1,0 +1,318 @@
+{
+  "format_version": "1.1",
+  "terraform_version": "1.5.0",
+  "planned_changes": [
+    {
+      "address": "aws_instance.web_server",
+      "mode": "managed",
+      "type": "aws_instance",
+      "name": "web_server",
+      "provider_name": "registry.terraform.io/hashicorp/aws",
+      "change": {
+        "actions": ["create"],
+        "before": null,
+        "after": {
+          "ami": "ami-0c55b159cbfafe1d0",
+          "instance_type": "t3.micro",
+          "key_name": "my-key",
+          "tags": {
+            "Name": "WebServer",
+            "Environment": "production"
+          },
+          "vpc_security_group_ids": ["sg-12345678"]
+        },
+        "after_unknown": {
+          "arn": true,
+          "id": true,
+          "private_ip": true,
+          "public_ip": true
+        }
+      }
+    },
+    {
+      "address": "aws_security_group.web_sg",
+      "mode": "managed",
+      "type": "aws_security_group",
+      "name": "web_sg",
+      "provider_name": "registry.terraform.io/hashicorp/aws",
+      "change": {
+        "actions": ["create"],
+        "before": null,
+        "after": {
+          "name": "web-security-group",
+          "description": "Security group for web server",
+          "ingress": [
+            {
+              "from_port": 80,
+              "to_port": 80,
+              "protocol": "tcp",
+              "cidr_blocks": ["0.0.0.0/0"]
+            },
+            {
+              "from_port": 443,
+              "to_port": 443,
+              "protocol": "tcp",
+              "cidr_blocks": ["0.0.0.0/0"]
+            }
+          ],
+          "egress": [
+            {
+              "from_port": 0,
+              "to_port": 0,
+              "protocol": "-1",
+              "cidr_blocks": ["0.0.0.0/0"]
+            }
+          ],
+          "tags": {
+            "Name": "WebSecurityGroup"
+          }
+        },
+        "after_unknown": {
+          "arn": true,
+          "id": true,
+          "owner_id": true
+        }
+      }
+    },
+    {
+      "address": "aws_s3_bucket.data_bucket",
+      "mode": "managed",
+      "type": "aws_s3_bucket",
+      "name": "data_bucket",
+      "provider_name": "registry.terraform.io/hashicorp/aws",
+      "change": {
+        "actions": ["update"],
+        "before": {
+          "bucket": "my-data-bucket-v1",
+          "versioning": [
+            {
+              "enabled": false
+            }
+          ],
+          "tags": {
+            "Environment": "staging"
+          }
+        },
+        "after": {
+          "bucket": "my-data-bucket-v1",
+          "versioning": [
+            {
+              "enabled": true
+            }
+          ],
+          "tags": {
+            "Environment": "production",
+            "Owner": "team-alpha"
+          }
+        },
+        "after_unknown": {}
+      }
+    },
+    {
+      "address": "module.database.aws_rds_instance.main",
+      "mode": "managed",
+      "type": "aws_rds_instance",
+      "name": "main",
+      "provider_name": "registry.terraform.io/hashicorp/aws",
+      "change": {
+        "actions": ["delete"],
+        "before": {
+          "identifier": "old-database",
+          "engine": "mysql",
+          "engine_version": "5.7",
+          "instance_class": "db.t2.micro",
+          "allocated_storage": 20,
+          "tags": {
+            "Name": "OldDatabase"
+          }
+        },
+        "after": null,
+        "after_unknown": {}
+      }
+    },
+    {
+      "address": "module.database.aws_rds_instance.new",
+      "mode": "managed",
+      "type": "aws_rds_instance",
+      "name": "new",
+      "provider_name": "registry.terraform.io/hashicorp/aws",
+      "change": {
+        "actions": ["create"],
+        "before": null,
+        "after": {
+          "identifier": "new-database",
+          "engine": "mysql",
+          "engine_version": "8.0",
+          "instance_class": "db.t3.small",
+          "allocated_storage": 50,
+          "tags": {
+            "Name": "NewDatabase",
+            "Environment": "production"
+          }
+        },
+        "after_unknown": {
+          "arn": true,
+          "endpoint": true,
+          "id": true
+        }
+      }
+    }
+  ],
+  "resource_changes": [
+    {
+      "address": "aws_instance.web_server",
+      "mode": "managed",
+      "type": "aws_instance",
+      "name": "web_server",
+      "provider_name": "registry.terraform.io/hashicorp/aws",
+      "change": {
+        "actions": ["create"],
+        "before": null,
+        "after": {
+          "ami": "ami-0c55b159cbfafe1d0",
+          "instance_type": "t3.micro",
+          "key_name": "my-key",
+          "tags": {
+            "Name": "WebServer",
+            "Environment": "production"
+          },
+          "vpc_security_group_ids": ["sg-12345678"]
+        },
+        "after_unknown": {
+          "arn": true,
+          "id": true,
+          "private_ip": true,
+          "public_ip": true
+        }
+      }
+    },
+    {
+      "address": "aws_security_group.web_sg",
+      "mode": "managed",
+      "type": "aws_security_group",
+      "name": "web_sg",
+      "provider_name": "registry.terraform.io/hashicorp/aws",
+      "change": {
+        "actions": ["create"],
+        "before": null,
+        "after": {
+          "name": "web-security-group",
+          "description": "Security group for web server",
+          "ingress": [
+            {
+              "from_port": 80,
+              "to_port": 80,
+              "protocol": "tcp",
+              "cidr_blocks": ["0.0.0.0/0"]
+            },
+            {
+              "from_port": 443,
+              "to_port": 443,
+              "protocol": "tcp",
+              "cidr_blocks": ["0.0.0.0/0"]
+            }
+          ],
+          "egress": [
+            {
+              "from_port": 0,
+              "to_port": 0,
+              "protocol": "-1",
+              "cidr_blocks": ["0.0.0.0/0"]
+            }
+          ],
+          "tags": {
+            "Name": "WebSecurityGroup"
+          }
+        },
+        "after_unknown": {
+          "arn": true,
+          "id": true,
+          "owner_id": true
+        }
+      }
+    },
+    {
+      "address": "aws_s3_bucket.data_bucket",
+      "mode": "managed",
+      "type": "aws_s3_bucket",
+      "name": "data_bucket",
+      "provider_name": "registry.terraform.io/hashicorp/aws",
+      "change": {
+        "actions": ["update"],
+        "before": {
+          "bucket": "my-data-bucket-v1",
+          "versioning": [
+            {
+              "enabled": false
+            }
+          ],
+          "tags": {
+            "Environment": "staging"
+          }
+        },
+        "after": {
+          "bucket": "my-data-bucket-v1",
+          "versioning": [
+            {
+              "enabled": true
+            }
+          ],
+          "tags": {
+            "Environment": "production",
+            "Owner": "team-alpha"
+          }
+        },
+        "after_unknown": {}
+      }
+    },
+    {
+      "address": "module.database.aws_rds_instance.main",
+      "mode": "managed",
+      "type": "aws_rds_instance",
+      "name": "main",
+      "provider_name": "registry.terraform.io/hashicorp/aws",
+      "change": {
+        "actions": ["delete"],
+        "before": {
+          "identifier": "old-database",
+          "engine": "mysql",
+          "engine_version": "5.7",
+          "instance_class": "db.t2.micro",
+          "allocated_storage": 20,
+          "tags": {
+            "Name": "OldDatabase"
+          }
+        },
+        "after": null,
+        "after_unknown": {}
+      }
+    },
+    {
+      "address": "module.database.aws_rds_instance.new",
+      "mode": "managed",
+      "type": "aws_rds_instance",
+      "name": "new",
+      "provider_name": "registry.terraform.io/hashicorp/aws",
+      "change": {
+        "actions": ["create"],
+        "before": null,
+        "after": {
+          "identifier": "new-database",
+          "engine": "mysql",
+          "engine_version": "8.0",
+          "instance_class": "db.t3.small",
+          "allocated_storage": 50,
+          "tags": {
+            "Name": "NewDatabase",
+            "Environment": "production"
+          }
+        },
+        "after_unknown": {
+          "arn": true,
+          "endpoint": true,
+          "id": true
+        }
+      }
+    }
+  ]
+}
