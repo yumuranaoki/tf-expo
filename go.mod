@@ -1,4 +1,4 @@
-module github.com/yumuranaoki/tf-expo
+module github.com/yumuranaoki/tfx
 
 go 1.24.3
 

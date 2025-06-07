@@ -3,7 +3,7 @@ package filter
 import (
 	"strings"
 
-	"github.com/yumuranaoki/tf-expo/internal/model"
+	"github.com/yumuranaoki/tfx/internal/model"
 )
 
 func Filter(resources []model.ResourceChange, action, target string) []model.ResourceChange {

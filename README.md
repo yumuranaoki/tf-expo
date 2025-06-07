@@ -1,45 +1,45 @@
-# tf-expo
+# tfx
 
 A CLI tool for visualizing Terraform plan output differences with an interactive interface.
 
 ## Overview
 
-tf-expo is a tool that takes the JSON output from Terraform's `terraform plan` command and allows you to interactively select resource changes to view detailed differences. It provides a user-friendly way to explore large Terraform plans with filtering and fuzzy search capabilities.
+tfx is a tool that takes the JSON output from Terraform's `terraform plan` command and allows you to interactively select resource changes to view detailed differences. It provides a user-friendly way to explore large Terraform plans with filtering and fuzzy search capabilities.
 
 ## Installation
 
 ### Using go install (Recommended)
 
 ```bash
-go install github.com/yumuranaoki/tf-expo@latest
+go install github.com/yumuranaoki/tfx@latest
 ```
 
-This will install the `tf-expo` binary to your `$GOPATH/bin` directory.
+This will install the `tfx` binary to your `$GOPATH/bin` directory.
 
 ### From Source
 
 ```bash
-git clone https://github.com/yumuranaoki/tf-expo.git
-cd tf-expo
-go build -o tf-expo .
+git clone https://github.com/yumuranaoki/tfx.git
+cd tfx
+go build -o tfx .
 ```
 
 ## Usage
 
 ### Basic Usage
 
-1. Run tf-expo directly with Terraform plan output:
+1. Run tfx directly with Terraform plan output:
 
 ```bash
 # Direct piping (recommended)
-terraform plan -json | tf-expo
+terraform plan -json | tfx
 ```
 
 2. Alternative: Generate plan file first, then view:
 
 ```bash
 terraform plan -out=tfplan
-terraform show -json tfplan | tf-expo
+terraform show -json tfplan | tfx
 ```
 
 3. Use the interactive interface:
@@ -50,7 +50,7 @@ terraform show -json tfplan | tf-expo
 
 ### Filtering Options
 
-tf-expo provides filtering options to narrow down the resources you want to review:
+tfx provides filtering options to narrow down the resources you want to review:
 
 * `--action`: Filter by action type (create, update, delete, replace)
 * `--target`: Filter by module/resource name prefix
@@ -59,13 +59,13 @@ Examples:
 
 ```bash
 # Show only resources being created
-terraform plan -json | tf-expo --action create
+terraform plan -json | tfx --action create
 
 # Show only resources in a specific module
-terraform plan -json | tf-expo --target module.network
+terraform plan -json | tfx --target module.network
 
 # Combine filters
-terraform plan -json | tf-expo --action update --target aws_instance
+terraform plan -json | tfx --action update --target aws_instance
 ```
 
 ## Features

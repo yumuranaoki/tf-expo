@@ -5,7 +5,7 @@ import (
 	"fmt"
 
 	"github.com/sergi/go-diff/diffmatchpatch"
-	"github.com/yumuranaoki/tf-expo/internal/model"
+	"github.com/yumuranaoki/tfx/internal/model"
 )
 
 func ShowDiff(r model.ResourceChange) {

@@ -3,7 +3,7 @@ package filter
 import (
 	"testing"
 
-	"github.com/yumuranaoki/tf-expo/internal/model"
+	"github.com/yumuranaoki/tfx/internal/model"
 )
 
 func TestFilter(t *testing.T) {

@@ -8,7 +8,7 @@ import (
 	"syscall"
 
 	"github.com/ktr0731/go-fuzzyfinder"
-	"github.com/yumuranaoki/tf-expo/internal/model"
+	"github.com/yumuranaoki/tfx/internal/model"
 )
 
 func SelectResource(resources []model.ResourceChange) (model.ResourceChange, error) {

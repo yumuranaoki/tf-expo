@@ -6,7 +6,7 @@ import (
 	"os/signal"
 	"syscall"
 
-	"github.com/yumuranaoki/tf-expo/internal/model"
+	"github.com/yumuranaoki/tfx/internal/model"
 )
 
 func RunInteractiveMode(resources []model.ResourceChange) error {

@@ -1,6 +1,6 @@
 package main
 
-import "github.com/yumuranaoki/tf-expo/cmd"
+import "github.com/yumuranaoki/tfx/cmd"
 
 func main() {
 	cmd.Execute()

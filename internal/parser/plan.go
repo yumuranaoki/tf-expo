@@ -3,7 +3,7 @@ package parser
 import (
 	"encoding/json"
 
-	"github.com/yumuranaoki/tf-expo/internal/model"
+	"github.com/yumuranaoki/tfx/internal/model"
 )
 
 func ParsePlan(data []byte) ([]model.ResourceChange, error) {

@@ -8,7 +8,7 @@ import (
 	"testing"
 
 	"github.com/spf13/cobra"
-	"github.com/yumuranaoki/tf-expo/internal/parser"
+	"github.com/yumuranaoki/tfx/internal/parser"
 )
 
 func TestExecute(t *testing.T) {

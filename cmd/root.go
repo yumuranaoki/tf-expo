@@ -6,9 +6,9 @@ import (
 	"os"
 
 	"github.com/spf13/cobra"
-	"github.com/yumuranaoki/tf-expo/internal/filter"
-	"github.com/yumuranaoki/tf-expo/internal/parser"
-	"github.com/yumuranaoki/tf-expo/internal/presentation"
+	"github.com/yumuranaoki/tfx/internal/filter"
+	"github.com/yumuranaoki/tfx/internal/parser"
+	"github.com/yumuranaoki/tfx/internal/presentation"
 )
 
 var (
